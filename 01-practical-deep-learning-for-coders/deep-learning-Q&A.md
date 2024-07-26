@@ -137,7 +137,7 @@ Approach to predicting cell outputs:
 - Test set: Used to evaluate final model performance.
 - They're needed to assess how well the model generalizes to unseen data.
 
->The validation set is the portion of the dataset that is not used for training the model, but for evaluating the model during training, in order to prevent overfitting. This ensures that the model performance is not due to “cheating” or memorization of the dataset, but rather because it learns the appropriate features to use for prediction. However, it is possible that we overfit the validation data as well. This is because the human modeler is also part of the training process, adjusting _hyperparameters_ (see question 32 for definition) and training procedures according to the validation performance. Therefore, another unseen portion of the dataset, the test set, is used for final evaluation of the model. This splitting of the dataset is necessary to ensure that the model _generalizes_ to _unseen_ data.
+>The validation set is the portion of the dataset that is not used for training the model, but for evaluating the model during training, in order to prevent _overfitting_. This ensures that the model performance is not due to “cheating” or memorization of the dataset, but rather because it learns the appropriate features to use for prediction. However, it is possible that we overfit the validation data as well. This is because the human modeler is also part of the training process, adjusting _hyperparameters_ (see **question 32** for definition) and training procedures according to the validation performance. Therefore, another unseen portion of the dataset, the test set, is used for final evaluation of the model. This splitting of the dataset is necessary to ensure that the model _generalizes_ to _unseen_ data.
 
 **21. What will fastai do if you don't provide a validation set?**
 - If no validation set is provided, fastai typically creates one by randomly splitting off a portion (20%) of the training data.
@@ -152,7 +152,7 @@ Approach to predicting cell outputs:
 - Overfitting: When a model performs well on training data but poorly on new, unseen data.
 - <u>Example:</u> memorizing noise in training data rather than learning general patterns.
 
->Overfitting is the most challenging issue when it comes to training machine learning models. Overfitting refers to when the model fits too closely to a limited set of data but does not generalize well to unseen data. This is especially important when it comes to neural networks, because neural networks can potentially “memorize” the dataset that the model was trained on, and will perform abysmally on unseen data because it didn’t “memorize” the ground truth values for that data. This is why a proper validation framework is needed by splitting the data into training, validation, and test sets.
+>Overfitting is the most challenging issue when it comes to training machine learning models. Overfitting refers to when the model fits too closely to a limited set of data but _does not generalize well to unseen data._ This is especially important when it comes to neural networks, because neural networks can potentially “memorize” the dataset that the model was trained on, and will perform abysmally on unseen data because it didn’t “memorize” the ground truth values for that data. This is why a proper validation framework is needed by splitting the data into training, validation, and test sets.
 
 **24. What is a metric? How does it differ from "loss"?**
 - A metric is a measure used to evaluate model performance. Unlike loss, metrics are often more interpretable and directly related to the task.
@@ -160,14 +160,14 @@ Approach to predicting cell outputs:
 >A _metric_ is a function that measures quality of the model’s predictions using the validation set. This is similar to the _­loss_, which is also a measure of performance of the model. However, loss is meant for the optimization algorithm (like SGD) to efficiently update the model parameters, while metrics are human-interpretable measures of performance. Sometimes, a metric may also be a good choice for the loss.
 
 **25. How can pretrained models help?**
-- Pretrained models provide a good starting point, having already learned useful features from a large dataset.
+- Pretrained models provide _a good starting point,_ having already learned useful features from a large dataset.
 
 >Pretrained models have been trained on other problems that may be quite similar to the current task. For example, pretrained image recognition models were often trained on the ImageNet dataset, which has 1000 classes focused on a lot of different types of visual objects. Pretrained models are useful because they have already learned how to handle a lot of simple features like edge and color detection. However, since the model was trained for a different task than already used, this model cannot be used as is.
 
 **26. What is the "head" of a model?**
 - The "head" of a model typically refers to the final layers that are task-specific, often added on top of a pretrained base.
 
->When using a pretrained model, the later layers of the model, which were useful for the task that the model was originally trained on, are replaced with one or more new layers with randomized weights, of an appropriate size for the dataset you are working with. These new layers are called the “head” of the model.
+>When using a pretrained model, the later layers of the model, which were useful for the task that the model was originally trained on, are replaced with one or more new layers with randomized weights, of an appropriate size for the dataset you are working with. These new layers are called the _“head”_ of the model.
 
 **27. What kinds of features do the early layers of a CNN find? How about the later layers?**
 - Early CNN layers find simple features like edges and textures. Later layers find more complex, abstract features specific to the task.
@@ -185,11 +185,11 @@ However, a lot of information can be represented as _images_ . For example, a so
 
 **30. What is segmentation?**
 - Segmentation is the task of dividing an image into multiple segments or objects, often assigning a class label to each pixel.
->At its core, segmentation is a pixelwise classification problem. We attempt to predict a label for every single pixel in the image. This provides a mask for which parts of the image correspond to the given label.
+>At its core, segmentation is a _pixelwise classification problem._ We attempt to predict a label for every single pixel in the image. This provides a mask for which parts of the image correspond to the given label.
 
 **31. What is `y_range` used for? When do we need it?**
 - `y_range` specifies the range of the target variable in regression problems, constraining the output of the model to a specific range.
->y_range is being used to limit the values predicted when our problem is focused on predicting a numeric value in a given range (ex: predicting movie ratings, range of 0.5-5).
+>`y_range` is being used to limit the values predicted when our problem is focused on predicting a numeric value in a given range (ex: predicting movie ratings, range of 0.5-5).
 
 **32. What are "hyperparameters"?**
 - Hyperparameters are configuration settings for the learning process that are not learned from the data (e.g., learning rate, batch size, number of epochs).
