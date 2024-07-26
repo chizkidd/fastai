@@ -176,8 +176,8 @@ Approach to predicting cell outputs:
 **28. Are image models only useful for photos?**
 - No, image models can be useful for various types of 2D data, not just photos (e.g., medical imaging, satellite imagery, audio spectrograms).
 >Nope! Image models can be useful for other types of images like sketches, medical data, etc.
-
-However, a lot of information can be represented as _images_ . For example, a sound can be converted into a spectrogram, which is a visual interpretation of the audio. Time series (ex: financial data) can be converted to image by plotting on a graph. Even better, there are various transformations that generate images from time series, and have achieved good results for time series classification. There are many other examples, and by being creative, it may be possible to formulate your problem as an image classification problem, and use pretrained image models to obtain state-of-the-art results!
+>
+>However, a lot of information can be represented as _images_ . For example, a sound can be converted into a spectrogram, which is a visual interpretation of the audio. Time series (ex: financial data) can be converted to image by plotting on a graph. Even better, there are various transformations that generate images from time series, and have achieved good results for time series classification. There are many other examples, and by being creative, it may be possible to formulate your problem as an image classification problem, and use pretrained image models to obtain state-of-the-art results!
 
 **29. What is an "architecture"?**
 - An "architecture" refers to the specific structure and arrangement of layers in a neural network.
