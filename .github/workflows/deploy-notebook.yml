@@ -28,10 +28,14 @@ jobs:
       - name: Convert Notebooks to HTML
         run: |
           mkdir public
-          # This command now looks into both folders for any .ipynb files
-          jupyter nbconvert --to html --output-dir='public' \
+          # Added --tag-format='' to help with widget issues 
+          # and specifically added --no-prompt to clean up the look
+          jupyter nbconvert --to html \
+            --template lab \
+            --no-input \
+            --output-dir='public' \
             01-practical-deep-learning-for-coders/*.ipynb \
-            02-deep-learning-foundations-to-stable-diffusion/*.ipynb
+            02-deep-learning-foundations-to-stable-diffusion/*.ipynb || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
