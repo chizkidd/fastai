@@ -29,16 +29,11 @@ jobs:
         run: |
           mkdir public
           
-          # Convert all notebooks
-          jupyter nbconvert --to html \
-            --template lab \
-            --no-input \
-            --output-dir='public' \
-            01-practical-deep-learning-for-coders/*.ipynb \
-            02-deep-learning-foundations-to-stable-diffusion/*.ipynb || true
-
-          # DEBUG: List files to see what actually converted
-          ls -l public
+          # Convert each notebook one by one so one failure doesn't stop the rest
+          for n in 01-practical-deep-learning-for-coders/*.ipynb 02-deep-learning-foundations-to-stable-diffusion/*.ipynb; do
+            [ -e "$n" ] || continue
+            jupyter nbconvert --to html --template lab --no-input --output-dir='public' "$n" || echo "Failed to convert $n"
+          done
 
           # Generate the index.html landing page
           echo "<html><head><title>Fastai Course Gallery</title>" > public/index.html
