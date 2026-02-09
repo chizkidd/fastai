@@ -29,7 +29,7 @@ jobs:
         run: |
           mkdir public
           
-          # 1. Convert all notebooks to HTML
+          # Convert all notebooks
           jupyter nbconvert --to html \
             --template lab \
             --no-input \
@@ -37,12 +37,14 @@ jobs:
             01-practical-deep-learning-for-coders/*.ipynb \
             02-deep-learning-foundations-to-stable-diffusion/*.ipynb || true
 
-          # 2. Generate the index.html landing page
+          # DEBUG: List files to see what actually converted
+          ls -l public
+
+          # Generate the index.html landing page
           echo "<html><head><title>Fastai Course Gallery</title>" > public/index.html
           echo "<style>body{font-family:sans-serif; line-height:1.6; padding:40px; max-width:800px; margin:auto;} a{text-decoration:none; color:#0366d6;} a:hover{text-decoration:underline;} li{margin-bottom:10px;}</style></head>" >> public/index.html
           echo "<body><h1>Deep Learning Notebooks</h1><hr><ul>" >> public/index.html
           
-          # Loop through converted files and create links
           for f in public/*.html; do
             if [ "$f" != "public/index.html" ]; then
               file=$(basename "$f")
