@@ -1,10 +1,12 @@
-name: Render Notebook to Pages
+name: Deploy Notebooks to GH Pages
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -14,22 +16,27 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/checkout@v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          pip install nbconvert pandas altair vega_datasets
+          pip install -r requirements.txt
 
-      - name: Convert Notebook to HTML
+      - name: Convert Notebooks to HTML
         run: |
-          # Replace 'analysis.ipynb' with your actual notebook filename
-          jupyter nbconvert --to html --execute analysis.ipynb
+          mkdir public
+          # This command now looks into both folders for any .ipynb files
+          jupyter nbconvert --to html --execute --output-dir='public' \
+            01-practical-deep-learning-for-coders/*.ipynb \
+            02-deep-learning-foundations-to-stable-diffusion/*.ipynb
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
+        uses: actions/deploy-pages@v4
