@@ -1,0 +1,35 @@
+name: Render Notebook to Pages
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/checkout@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install nbconvert pandas altair vega_datasets
+
+      - name: Convert Notebook to HTML
+        run: |
+          # Replace 'analysis.ipynb' with your actual notebook filename
+          jupyter nbconvert --to html --execute analysis.ipynb
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
