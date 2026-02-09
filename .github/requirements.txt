@@ -1,0 +1,6 @@
+altair
+pandas
+vega_datasets
+nbconvert
+ipykernel
+jinja2
