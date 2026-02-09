@@ -1,3 +1,5 @@
+![Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)
+
 # fastai
 Implementation of fast.ai deep learning courses: 
 1. "Practical Deep Learning for Coders"
