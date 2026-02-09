@@ -28,14 +28,30 @@ jobs:
       - name: Convert Notebooks to HTML
         run: |
           mkdir public
-          # Added --tag-format='' to help with widget issues 
-          # and specifically added --no-prompt to clean up the look
+          
+          # 1. Convert all notebooks to HTML
           jupyter nbconvert --to html \
             --template lab \
             --no-input \
             --output-dir='public' \
             01-practical-deep-learning-for-coders/*.ipynb \
             02-deep-learning-foundations-to-stable-diffusion/*.ipynb || true
+
+          # 2. Generate the index.html landing page
+          echo "<html><head><title>Fastai Course Gallery</title>" > public/index.html
+          echo "<style>body{font-family:sans-serif; line-height:1.6; padding:40px; max-width:800px; margin:auto;} a{text-decoration:none; color:#0366d6;} a:hover{text-decoration:underline;} li{margin-bottom:10px;}</style></head>" >> public/index.html
+          echo "<body><h1>Deep Learning Notebooks</h1><hr><ul>" >> public/index.html
+          
+          # Loop through converted files and create links
+          for f in public/*.html; do
+            if [ "$f" != "public/index.html" ]; then
+              file=$(basename "$f")
+              name="${file%.*}"
+              echo "<li><a href='$file'>$name</a></li>" >> public/index.html
+            fi
+          done
+          
+          echo "</ul></body></html>" >> public/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
