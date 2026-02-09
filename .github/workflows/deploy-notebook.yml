@@ -29,7 +29,7 @@ jobs:
         run: |
           mkdir public
           # This command now looks into both folders for any .ipynb files
-          jupyter nbconvert --to html --execute --output-dir='public' \
+          jupyter nbconvert --to html --output-dir='public' \
             01-practical-deep-learning-for-coders/*.ipynb \
             02-deep-learning-foundations-to-stable-diffusion/*.ipynb
 
