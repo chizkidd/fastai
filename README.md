@@ -1,4 +1,5 @@
 ![Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)
+![Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)
 
 # fastai
 Implementation of fast.ai deep learning courses: 
