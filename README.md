@@ -2,15 +2,7 @@
 ![Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)
 
 # fastai
-Implementation of fast.ai deep learning courses: 
-1. "Practical Deep Learning for Coders"
-2. "From Deep Learning Foundations to Stable Diffusion"
-
-![Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)
-![Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)
-
-# fastai
-Implementation and notes for the fast.ai deep learning curriculum. This repository tracks my progress through the following courses:
+Implementation for the fast.ai deep learning curriculum. This repository tracks my progress through the following courses:
 
 1. [Practical Deep Learning for Coders](#1-practical-deep-learning-for-coders)
 2. [Deep Learning Foundations to Stable Diffusion](#2-deep-learning-foundations-to-stable-diffusion)
