@@ -158,7 +158,7 @@ jobs:
           <body>
               <div class="container">
                   <header>
-                      <h1>🚀 fast.ai Deep Learning Course</h1>
+                      <h1>fast.ai Deep Learning Courses</h1>
                       <p class="subtitle">Practical Implementation Notebooks</p>
                       <p class="description">
                           Implementation of fast.ai deep learning courses: 
@@ -168,18 +168,19 @@ jobs:
                   </header>
 
                   <div class="course-section" id="course1-section">
-                      <h2>📚 Course 1: Practical Deep Learning for Coders</h2>
+                      <h2> Course 1: Practical Deep Learning for Coders</h2>
                       <ul id="course1-notebooks"></ul>
                   </div>
 
                   <div class="course-section" id="course2-section">
-                      <h2>🎨 Course 2: Deep Learning Foundations to Stable Diffusion</h2>
+                      <h2>Course 2: Deep Learning Foundations to Stable Diffusion</h2>
                       <ul id="course2-notebooks"></ul>
                   </div>
 
                   <footer>
-                      <p>Built with <a href="https://www.fast.ai/" target="_blank">fast.ai</a> 
-                      | View on <a href="https://github.com/chizkidd/fastai" target="_blank">GitHub</a></p>
+                      <p>Notebooks from <a href="https://www.fast.ai/" target="_blank">fast.ai</a> courses
+                      | Built with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+                      | View source on <a href="https://github.com/chizkidd/fastai" target="_blank">GitHub</a></p>
                   </footer>
               </div>
 
