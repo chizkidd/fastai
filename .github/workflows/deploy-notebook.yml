@@ -42,7 +42,7 @@ jobs:
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>fast.ai Course Notebooks</title>
+              <title>fast.ai Deep Learning Courses Notebooks</title>
               <style>
                   * {
                       margin: 0;
@@ -196,7 +196,6 @@ jobs:
 
               <div class="page-content">
                   <div class="wrap">
-                      <h1 class="header-matched-heading">fast.ai Deep Learning Courses</h1>
                       
                       <div class="section">
                           <h2 class="section-heading">Practical Deep Learning for Coders</h2>
