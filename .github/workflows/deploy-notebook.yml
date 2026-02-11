@@ -190,7 +190,7 @@ jobs:
           <body>
               <header class="site-header">
                   <div class="wrap">
-                      <a class="site-title" href="https://github.com/chizkidd/fastai">fast.ai Course Notebooks</a>
+                      <a class="site-title" href="https://github.com/chizkidd/fastai">fast.ai Deep Learning Course Notebooks</a>
                   </div>
               </header>
 
