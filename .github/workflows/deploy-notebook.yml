@@ -32,7 +32,7 @@ jobs:
           # Convert notebooks from both directories
           for n in 01-practical-deep-learning-for-coders/*.ipynb 02-deep-learning-foundations-to-stable-diffusion/*.ipynb; do
             [ -e "$n" ] || continue
-            jupyter nbconvert --to html --template lab --no-input --output-dir='public' "$n" || echo "Failed to convert $n"
+            jupyter nbconvert --to html --template lab --output-dir='public' "$n" || echo "Failed to convert $n"
           done
 
           # Generate the index.html landing page
