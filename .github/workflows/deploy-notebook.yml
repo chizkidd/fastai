@@ -29,13 +29,24 @@ jobs:
         run: |
           mkdir -p public
           
-          # Convert notebooks from both directories
+          # Convert notebooks while preserving directory structure (Karpathy Style)
+          # This handles both fastai course directories
           for n in 01-practical-deep-learning-for-coders/*.ipynb 02-deep-learning-foundations-to-stable-diffusion/*.ipynb; do
             [ -e "$n" ] || continue
-            jupyter nbconvert --to html --template lab --output-dir='public' "$n" || echo "Failed to convert $n"
+            
+            dir=$(dirname "$n")
+            mkdir -p "public/$dir"
+            
+            echo "Converting $n to public/$dir/"
+            jupyter nbconvert --to html --template lab --output-dir="public/$dir" "$n" || echo "Failed to convert $n"
+            
+            # Copy images folder if it exists in the course directory
+            if [ -d "$dir/_imgs" ]; then
+              cp -r "$dir/_imgs" "public/$dir/"
+            fi
           done
           
-          # 1. Clean up (delete) the duplicate header template in notebooks & Inject the shared blog header script into every page
+          # Clean up default headers and inject shared blog loader
           find public -name "*.html" -not -name "index.html" -exec sed -i '/<header class="site-header">/,/<\/header>/d' {} +
           find public -name "*.html" -not -name "index.html" -exec sed -i 's|<body>|<body><script src="https://chizkidd.github.io/header-loader.js"></script>|' {} +
 
@@ -46,216 +57,77 @@ jobs:
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>fast.ai Deep Learning Courses Notebooks</title>
+              <title>fast.ai Deep Learning Courses | Chizoba Obasi</title>
               <style>
-                  * {
-                      margin: 0;
-                      padding: 0;
-                  }
-                  
-                  html, body {
-                      height: 100%;
-                  }
-                  
-                  body {
-                      font-family: Helvetica, Arial, sans-serif;
-                      font-size: 16px;
-                      line-height: 1.5;
-                      font-weight: 300;
-                      background-color: #fdfdfd;
-                      display: grid;
-                      grid-template-rows: auto 1fr auto;
-                      min-height: 100vh;
-                  }
-                  
-                  h1, h2, h3, h4, h5, h6 {
-                      font-size: 100%;
-                      font-weight: 400;
-                  }
-                  
-                  a {
-                      color: #2a7ae2;
-                      text-decoration: none;
-                  }
-                  
-                  a:hover {
-                      color: #000;
-                      text-decoration: underline;
-                  }
-                  
-                  a:visited {
-                      color: #205caa;
-                  }
-                  
-                  .wrap {
-                      max-width: 800px;
-                      padding: 0 30px;
-                      margin: 0 auto;
-                  }
-                  
-                  /* Site header */
-                  .site-header {
-                      border-top: 5px solid #333;
-                      border-bottom: 1px solid #e8e8e8;
-                      min-height: 56px;
-                      background-color: white;
-                  }
-                  
-                  .site-title {
-                      display: block;
-                      color: #333;
-                      font-size: 26px;
-                      letter-spacing: -1px;
-                      float: left;
-                      line-height: 56px;
-                      position: relative;
-                      z-index: 1;
-                  }
-                  
-                  .site-title:hover,
-                  .site-title:visited {
-                      color: #333;
-                  }
-                  
-                  /* Page content */
-                  .page-content {
-                      padding: 30px 0;
-                      background-color: #fff;
-                  }
-                  
-                  .header-matched-heading {
-                      color: #333;
-                      font-size: 26px;
-                      letter-spacing: -1px;
-                      font-weight: 400;
-                      text-align: left;
-                      line-height: 1.2;
-                      margin-top: 20px;
-                      margin-bottom: 20px;
-                  }
-                  
-                  .section-heading {
-                      color: #333;
-                      font-size: 26px;
-                      letter-spacing: -1px;
-                      font-weight: 400;
-                      text-align: left;
-                      line-height: 1.2;
-                      margin-bottom: 40px;
-                      border-bottom: 1px solid #ddd;
-                      padding-bottom: 0.5px;
-                  }
-                  
-                  .home-nav-list {
-                      padding-left: 20px;
-                      margin-bottom: 30px;
-                      list-style-type: disc;
-                  }
-                  
-                  .home-nav-list li {
-                      margin-bottom: 5.5px;
-                  }
-                  
-                  .home-nav-list a {
-                      font-size: 1.0em;
-                      font-weight: 300;
-                      color: #2a7ae2;
-                  }
-                  
-                  .home-nav-list a:hover {
-                      color: #000;
-                      text-decoration: underline;
-                  }
-                  
-                  /* Site footer */
-                  .site-footer {
-                      border-top: 1px solid #e8e8e8;
-                      padding: 30px 0;
-                  }
-                  
-                  .site-footer p {
-                      font-size: 15px;
-                      letter-spacing: -.3px;
-                      color: #828282;
-                      text-align: center;
-                  }
-                  
-                  .site-footer a {
-                      color: #2a7ae2;
-                  }
-                  
-                  @media screen and (max-width: 600px) {
-                      .wrap {
-                          padding: 0 12px;
-                      }
-                  }
+                  * { margin: 0; padding: 0; }
+                  html, body { height: 100%; }
+                  body { font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; font-weight: 300; background-color: #fdfdfd; display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; }
+                  h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
+                  a { color: #2a7ae2; text-decoration: none; }
+                  a:hover { color: #000; text-decoration: underline; }
+                  .wrap { max-width: 800px; padding: 0 30px; margin: 0 auto; }
+                  .page-content { padding: 30px 0; background-color: #fff; }
+                  .header-matched-heading { color: #333; font-size: 26px; letter-spacing: -1px; font-weight: 400; margin: 20px 0; }
+                  .section-heading { color: #333; font-size: 26px; letter-spacing: -1px; font-weight: 400; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 0.5px; }
+                  .home-nav-list { padding-left: 20px; margin-bottom: 30px; list-style-type: disc; }
+                  .home-nav-list li { margin-bottom: 5.5px; }
+                  .site-footer { border-top: 1px solid #e8e8e8; padding: 30px 0; }
+                  .site-footer p { font-size: 15px; color: #828282; text-align: center; }
+                  @media screen and (max-width: 600px) { .wrap { padding: 0 12px; } }
               </style>
           </head>
           <body>
               <script src="https://chizkidd.github.io/header-loader.js"></script>
-              
               <div class="page-content">
                   <div class="wrap">
                       <h1 class="header-matched-heading">fast.ai Deep Learning Course Notebooks</h1>
-
-              <div class="page-content">
-                  <div class="wrap">
-                      
                       <div class="section">
                           <h2 class="section-heading">Practical Deep Learning for Coders</h2>
                           <ul class="home-nav-list" id="course1-notebooks"></ul>
                       </div>
-
                       <div class="section">
                           <h2 class="section-heading">Deep Learning Foundations to Stable Diffusion</h2>
                           <ul class="home-nav-list" id="course2-notebooks"></ul>
                       </div>
                   </div>
               </div>
-
               <footer class="site-footer">
                   <div class="wrap">
                       <p>
                           <a href="https://www.fast.ai/" target="_blank">fast.ai</a> course implementations
-                          • Powered by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
                           • <a href="https://github.com/chizkidd/fastai" target="_blank">View Repository</a>
                       </p>
                   </div>
               </footer>
-
               <script>
                   const course1List = document.getElementById('course1-notebooks');
                   const course2List = document.getElementById('course2-notebooks');
-                  
           HTMLEOF
           
-          # Add notebook links with source folder tracking
+          # Inject notebook data with path preservation (Karpathy Method)
           echo "        const notebooks = [" >> public/index.html
           for n in 01-practical-deep-learning-for-coders/*.ipynb 02-deep-learning-foundations-to-stable-diffusion/*.ipynb; do
             [ -e "$n" ] || continue
+            dir=$(dirname "$n")
             file=$(basename "$n" .ipynb).html
             name=$(basename "$n" .ipynb)
-            folder=$(dirname "$n")
-            echo "            {file: '$file', name: '$name', folder: '$folder'}," >> public/index.html
+            # Link now includes the subfolder path
+            fullpath="$dir/$file"
+            echo "            {file: '$fullpath', name: '$name', folder: '$dir'}," >> public/index.html
           done
           echo "        ];" >> public/index.html
           
           cat >> public/index.html << 'JSEOF'
-          
-          // Sort notebooks alphabetically within each course
           notebooks.sort((a, b) => a.name.localeCompare(b.name));
-          
           notebooks.forEach(nb => {
               const li = document.createElement('li');
               const a = document.createElement('a');
               a.href = nb.file;
-              a.textContent = nb.name.replace(/_/g, ' ');
+              a.textContent = nb.name.replace(/_/g, ' ').replace(/-/g, ' ');
               li.appendChild(a);
-              
-              // Categorize based on source folder
               if (nb.folder === '01-practical-deep-learning-for-coders') {
                   course1List.appendChild(li);
-              } else if (nb.folder === '02-deep-learning-foundations-to-stable-diffusion') {
+              } else {
                   course2List.appendChild(li);
               }
           });
