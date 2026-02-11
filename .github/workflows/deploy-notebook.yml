@@ -35,6 +35,9 @@ jobs:
             jupyter nbconvert --to html --template lab --output-dir='public' "$n" || echo "Failed to convert $n"
           done
 
+          # Inject the shared header script into every generated notebook
+          find public -name "*.html" -exec sed -i 's|<body>|<body><script src="https://chizkidd.github.io/header-loader.js"></script>|' {} +
+
           # Generate the index.html landing page
           cat > public/index.html << 'HTMLEOF'
           <!DOCTYPE html>
@@ -188,6 +191,7 @@ jobs:
               </style>
           </head>
           <body>
+              <script src="https://chizkidd.github.io/header-loader.js"></script>
               <header class="site-header">
                   <div class="wrap">
                       <a class="site-title" href="https://github.com/chizkidd/fastai">fast.ai Deep Learning Course Notebooks</a>
