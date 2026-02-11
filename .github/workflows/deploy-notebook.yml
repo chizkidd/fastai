@@ -80,7 +80,7 @@ jobs:
               <script src="https://chizkidd.github.io/header-loader.js"></script>
               <div class="page-content">
                   <div class="wrap">
-                      <h1 class="header-matched-heading">fast.ai Deep Learning Course Notebooks</h1>
+                      <h1 class="header-matched-heading">Notebook Implemetations</h1>
                       <div class="section">
                           <h2 class="section-heading">Practical Deep Learning for Coders</h2>
                           <ul class="home-nav-list" id="course1-notebooks"></ul>
