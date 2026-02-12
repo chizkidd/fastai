@@ -100,7 +100,7 @@ jobs:
                           <a href="https://www.fast.ai/" target="_blank">fast.ai</a> course implementations
                           • <a href="https://github.com/chizkidd/fastai" target="_blank">View Repository</a>
                       </p>
-                      <p class="last-updated">Site last updated: $LAST_UPDATED</p>
+                      <p class="last-updated">Last updated: $LAST_UPDATED</p>
                   </div>
               </footer>
               <script>
