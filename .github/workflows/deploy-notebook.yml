@@ -85,11 +85,11 @@ jobs:
                   <div class="wrap">
                       <h1 class="header-matched-heading">Fast.ai Deep Learning Notebook Implementations</h1>
                       <div class="section">
-                          <h3 class="section-heading">Practical Deep Learning for Coders</h3>
+                          <h2 class="section-heading">Practical Deep Learning for Coders</h2>
                           <ul class="home-nav-list" id="course1-notebooks"></ul>
                       </div>
                       <div class="section">
-                          <h3 class="section-heading">Deep Learning Foundations to Stable Diffusion</h3>
+                          <h2 class="section-heading">Deep Learning Foundations to Stable Diffusion</h2>
                           <ul class="home-nav-list" id="course2-notebooks"></ul>
                       </div>
                   </div>
