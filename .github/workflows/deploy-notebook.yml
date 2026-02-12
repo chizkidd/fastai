@@ -70,8 +70,8 @@ jobs:
                   a:hover { color: #000; text-decoration: underline; }
                   .wrap { max-width: 800px; padding: 0 30px; margin: 0 auto; }
                   .page-content { padding: 30px 0; background-color: #fff; }
-                  .header-matched-heading { color: #333; font-size: 26px; letter-spacing: -1px; font-weight: 400; margin: 20px 0; }
-                  .section-heading { color: #333; font-size: 26px; letter-spacing: -1px; font-weight: 400; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 0.5px; }
+                  .header-matched-heading { color: #333; font-size: 32px; letter-spacing: -1.2px; font-weight: 400; text-align: left; line-height: 1.1; margin-top: 30px; margin-bottom: 25px; }
+                  .section-heading { font-size: 20px; font-weight: 500; color: #555; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; margin-top: 40px; margin-bottom: 15px; }
                   .home-nav-list { padding-left: 20px; margin-bottom: 30px; list-style-type: disc; }
                   .home-nav-list li { margin-bottom: 5.5px; }
                   .site-footer { border-top: 1px solid #e8e8e8; padding: 30px 0; }
