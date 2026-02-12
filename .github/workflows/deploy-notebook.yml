@@ -49,9 +49,12 @@ jobs:
           # Clean up default headers and inject shared blog loader
           find public -name "*.html" -not -name "index.html" -exec sed -i '/<header class="site-header">/,/<\/header>/d' {} +
           find public -name "*.html" -not -name "index.html" -exec sed -i 's|<body>|<body><script src="https://chizkidd.github.io/header-loader.js"></script>|' {} +
+          
+          # Get current date in a clean format
+          LAST_UPDATED=$(date +"%B %d, %Y")
 
           # Generate the index.html landing page
-          cat > public/index.html << 'HTMLEOF'
+          cat > public/index.html << HTMLEOF
           <!DOCTYPE html>
           <html>
           <head>
@@ -97,6 +100,7 @@ jobs:
                           <a href="https://www.fast.ai/" target="_blank">fast.ai</a> course implementations
                           • <a href="https://github.com/chizkidd/fastai" target="_blank">View Repository</a>
                       </p>
+                      <p class="last-updated">Site last updated: $LAST_UPDATED</p>
                   </div>
               </footer>
               <script>
