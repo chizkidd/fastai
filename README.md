@@ -28,11 +28,18 @@ Hands-on application of deep learning using `fastai` and `PyTorch`.
 | **06** | [Paddy Disease Part 1](./01-practical-deep-learning-for-coders/06-paddy-disease-classification-part-1-first-steps.ipynb) | Large scale image classification |
 | **07** | [Collaborative Filtering](./01-practical-deep-learning-for-coders/07-collaborative-filtering-deep-dive.ipynb) | Recommendation systems |
 | | [Road to the Top Part 4](./01-practical-deep-learning-for-coders/07-multi-target-road-to-the-top-part-4.ipynb) | Multi-target modeling |
+<!-- | | [Deep Learning Q&A](./01-practical-deep-learning-for-coders/deep-learning-Q&A.md) | Common questions and answers | -->
 
 ---
 
 ## 2. Deep Learning Foundations to Stable Diffusion
-This section covers the math and architecture behind generative models and the latest stable diffusion techniques.
+Advanced topics covering diffusion models and generative AI.
+
+| Chapter | Notebook / Resource | Description |
+| :--- | :--- | :--- |
+| **09** | [Stable Diffusion Deep Dive](./02-deep-learning-foundations-to-stable-diffusion/09_Stable_Diffusion_Deep_Dive.ipynb) | Comprehensive exploration of diffusion models |
+| | [Stable Diffusion](./02-deep-learning-foundations-to-stable-diffusion/09-stable-diffusion.ipynb) | Building and understanding Stable Diffusion |
+
 
 *In progress...* 
 
