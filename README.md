@@ -1,5 +1,6 @@
-![Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)
-![Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)
+[![Notebooks Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml)
+[![Notebooks Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml)
+[![View Notebooks](https://img.shields.io/badge/View-Live%20Notebooks-blue?logo=github)](https://chizkidd.github.io/fastai/)
 
 # fastai
 Implementation for the fast.ai deep learning curriculum. This repository tracks my progress through the following courses:
