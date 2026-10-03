@@ -1,0 +1,5 @@
+title: Fast.ai Deep Learning Notebook Implementations
+credit: {text: fast.ai, url: "https://www.fast.ai/"}
+sections:
+  - {title: Practical Deep Learning for Coders, folder: 01-practical-deep-learning-for-coders}
+  - {title: Deep Learning Foundations to Stable Diffusion, folder: 02-deep-learning-foundations-to-stable-diffusion}
