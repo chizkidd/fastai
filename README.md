@@ -1,5 +1,5 @@
-[![Notebooks Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml)
-[![Notebooks Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml)
+<!--[![Notebooks Sanitizer Status](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/clean-notebooks.yml)
+[![Notebooks Deployment Status](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml/badge.svg)](https://github.com/chizkidd/fastai/actions/workflows/deploy-notebook.yml)-->
 [![View Notebooks](https://img.shields.io/badge/View-Live%20Notebooks-blue?logo=github)](https://chizkidd.github.io/fastai/)
 
 # fastai
